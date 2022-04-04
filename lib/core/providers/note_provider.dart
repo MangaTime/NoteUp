@@ -6,8 +6,6 @@ import 'package:realm/realm.dart';
 import 'package:uuid/uuid.dart';
 
 class NoteProvider extends BaseProvider {
-  late Configuration config;
-  // late Realm realm;
   RealmProvider realmProvider;
 
   NoteProvider(this.realmProvider) : super();

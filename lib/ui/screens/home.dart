@@ -4,6 +4,7 @@ import 'package:note_up/core/models/note.dart';
 import 'package:note_up/core/viewmodels/screens/home_screen_view_model.dart';
 import 'package:note_up/ui/screens/note.dart';
 import 'package:note_up/ui/shared/view_model_provider.dart';
+import 'package:note_up/ui/widgets/bottom_action_bar.dart';
 import 'package:realm/realm.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -98,37 +99,6 @@ class HomeScreen extends StatelessWidget {
                 ).toList(),
               ))
             ]),
-            bottomNavigationBar: BottomAppBar(
-              color: Theme.of(context).colorScheme.background,
-              child: IconTheme(
-                data: IconThemeData(
-                    color: Theme.of(context).colorScheme.onPrimary),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    IconButton(
-                      tooltip: 'Add note',
-                      icon: const Icon(Icons.playlist_add_rounded),
-                      color: Theme.of(context).colorScheme.onBackground,
-                      onPressed: () {
-                        Navigator.pushNamed(context, "ADD_NOTE");
-                      },
-                    ),
-                    IconButton(
-                      tooltip: 'Add folder',
-                      icon: const Icon(Icons.create_new_folder_outlined),
-                      color: Theme.of(context).colorScheme.onBackground,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      tooltip: 'Settings',
-                      icon: const Icon(Icons.settings_outlined),
-                      color: Theme.of(context).colorScheme.onBackground,
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ),
-            ));
+            bottomNavigationBar: const BottomActionBar());
       });
 }
