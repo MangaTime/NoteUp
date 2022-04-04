@@ -16,6 +16,7 @@ class NoteScreenViewModel extends BaseViewModel {
   String? id;
   String title = "";
   String? content;
+  bool? isPinned;
   NoteScreenViewModel({required BuildContext context, this.id})
       : super(context: context) {
     // noteProvider = Provider.of<NoteProvider>(context);
@@ -25,7 +26,27 @@ class NoteScreenViewModel extends BaseViewModel {
       if (note != null) {
         title = note.title;
         content = note.content;
+        isPinned = note.isPinned;
       }
+    }
+  }
+
+  void togglePin() {
+    if (id != null) {
+      Note? note = noteProvider.getNote(id!);
+      if (note != null) {
+        var changed = noteProvider.setPinnedNote(note, !note.isPinned);
+        if (changed) {
+          isPinned = note.isPinned;
+          notifyListeners();
+        }
+      }
+    }
+  }
+
+  void deleteNote() {
+    if (id != null) {
+      noteProvider.deleteNote(id!);
     }
   }
 
