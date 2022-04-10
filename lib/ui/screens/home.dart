@@ -79,9 +79,6 @@ class HomeScreen extends StatelessWidget {
                             itemBuilder: (BuildContext context, int index) {
                               return ListTile(
                                   onTap: () {
-                                    print(
-                                        (e['data'] as RealmResults<Note>)[index]
-                                            .id);
                                     Navigator.pushNamed(context, "ADD_NOTE",
                                         arguments: NoteRouteArguments(
                                             id: (e['data'] as RealmResults<

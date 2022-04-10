@@ -1,10 +1,7 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
-import 'package:note_up/core/models/note.dart';
-import 'package:note_up/core/viewmodels/screens/home_screen_view_model.dart';
 import 'package:note_up/ui/widgets/paged_animated_list/animated_list_item.dart';
 
 class PagedAnimatedList<T> extends StatefulWidget {
@@ -22,11 +19,8 @@ class PagedAnimatedList<T> extends StatefulWidget {
 
 class _PagedAnimatedListState<T> extends State<PagedAnimatedList<T>>
     with SingleTickerProviderStateMixin {
-  late PagingController<int, Note> _pagingController;
-
   @override
   void initState() {
-    _pagingController = PagingController(firstPageKey: 0);
     super.initState();
   }
 

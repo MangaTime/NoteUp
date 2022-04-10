@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class AnimatedListItem<T> extends StatefulWidget {
   final int index;
@@ -15,19 +14,14 @@ class AnimatedListItem<T> extends StatefulWidget {
 class _AnimatedListItemState<T> extends State<AnimatedListItem<T>> {
   bool _animate = false;
 
-  // static bool _isStart = true;
-
   @override
   void initState() {
     super.initState();
-    print('init state for ' + widget.index.toString());
-    // Future.delayed(Duration(milliseconds: 10), () {
     WidgetsBinding.instance?.addPostFrameCallback((_) => {
           setState(() {
             _animate = true;
           })
         });
-    // });
   }
 
   @override

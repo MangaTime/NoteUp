@@ -23,14 +23,7 @@ class _Content extends StatelessWidget {
                   child: Column(
                     children: [
                       // TODO: link to create folder screen from this popup
-                      // Row(
-                      //   children: [
-                      // IconButton(onPressed: onPressed, icon: icon)
-                      //   ],
-                      // ),
                       ListView.builder(
-                          // shrinkWrap: true,
-                          // physics: const NeverScrollableScrollPhysics(),
                           scrollDirection: Axis.vertical,
                           itemCount: model.dirs.length,
                           itemBuilder: (BuildContext context, int index) {

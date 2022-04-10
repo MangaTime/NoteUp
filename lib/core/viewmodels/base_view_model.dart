@@ -5,13 +5,11 @@ import 'package:provider/provider.dart';
 class BaseViewModel extends ChangeNotifier {
   final BuildContext context;
 
-  // TODO: Set all providers here
-  // Example:
+  // Set all providers
   late NoteProvider noteProvider;
 
   BaseViewModel({required this.context}) {
-    // TODO: Retrieve all providers here
-    // Example:
+    // Retrieve all providers here
     noteProvider = Provider.of<NoteProvider>(context);
   }
 }

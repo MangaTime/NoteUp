@@ -92,9 +92,6 @@ class NoteProvider extends BaseProvider {
   RealmResults<Note> getAllPinned() {
     var result =
         realmProvider.realm.all<Note>().query(r'isPinned == $0', [true]);
-    result.forEach((element) {
-      print("hmm" + element.isPinned.toString());
-    });
     return result;
   }
 
