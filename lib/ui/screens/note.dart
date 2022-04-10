@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:note_up/core/models/note.dart';
 import 'package:note_up/core/viewmodels/screens/note_screen_view_model.dart';
-import 'package:note_up/ui/dialogs/showSelectFolderDialog.dart';
+import 'package:note_up/ui/dialogs/select_folder_dialog.dart';
 import 'package:note_up/ui/shared/view_model_provider.dart';
 
 class NoteRouteArguments {
@@ -105,9 +104,8 @@ class NoteScreen extends StatelessWidget {
                                 icon: const Icon(Icons.delete_outline)),
                             IconButton(
                                 onPressed: () async {
-                                  Note? note = await showSelectFolderDialog(
+                                  await showSelectFolderDialog(
                                       context: context);
-                                  print(note);
                                 },
                                 icon: const Icon(
                                     Icons.create_new_folder_outlined)),

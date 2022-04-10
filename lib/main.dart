@@ -4,7 +4,6 @@ import 'package:note_up/core/providers/note_provider.dart';
 import 'package:note_up/core/providers/realm_provider.dart';
 import 'package:note_up/ui/screens/note.dart';
 import 'package:note_up/ui/screens/home.dart';
-import 'package:note_up/ui/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(const MyApp());
@@ -17,8 +16,6 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-
-    // TODO: Instance provider
 
     return Provider<RealmProvider>(
         create: (_) => RealmProvider(),

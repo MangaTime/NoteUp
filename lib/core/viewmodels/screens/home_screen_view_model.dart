@@ -1,11 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:note_up/core/models/note.dart';
-import 'package:note_up/core/providers/note_provider.dart';
 import 'package:note_up/core/viewmodels/base_view_model.dart';
-import 'package:provider/provider.dart';
 import 'package:realm/realm.dart';
 
 const initialTake = 20;
