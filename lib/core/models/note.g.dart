@@ -11,19 +11,28 @@ class Note extends _Note with RealmEntity, RealmObject {
 
   Note(
     String id,
-    String content, {
+    String title, {
+    String? content,
     String? createdAt,
-    bool? isDir = false,
+    String? customIcon,
+    bool isDir = false,
+    bool isPinned = false,
+    Note? parent,
   }) {
     if (!_defaultsSet) {
       _defaultsSet = RealmObject.setDefaults<Note>({
         'isDir': false,
+        'isPinned': false,
       });
     }
     RealmObject.set(this, 'id', id);
+    RealmObject.set(this, 'title', title);
     RealmObject.set(this, 'content', content);
     RealmObject.set(this, 'createdAt', createdAt);
+    RealmObject.set(this, 'customIcon', customIcon);
     RealmObject.set(this, 'isDir', isDir);
+    RealmObject.set(this, 'isPinned', isPinned);
+    RealmObject.set(this, 'parent', parent);
   }
 
   Note._();
@@ -34,9 +43,14 @@ class Note extends _Note with RealmEntity, RealmObject {
   set id(String value) => throw RealmUnsupportedSetError();
 
   @override
-  String get content => RealmObject.get<String>(this, 'content') as String;
+  String get title => RealmObject.get<String>(this, 'title') as String;
   @override
-  set content(String value) => RealmObject.set(this, 'content', value);
+  set title(String value) => RealmObject.set(this, 'title', value);
+
+  @override
+  String? get content => RealmObject.get<String>(this, 'content') as String?;
+  @override
+  set content(String? value) => RealmObject.set(this, 'content', value);
 
   @override
   String? get createdAt =>
@@ -45,9 +59,25 @@ class Note extends _Note with RealmEntity, RealmObject {
   set createdAt(String? value) => RealmObject.set(this, 'createdAt', value);
 
   @override
-  bool? get isDir => RealmObject.get<bool>(this, 'isDir') as bool?;
+  String? get customIcon =>
+      RealmObject.get<String>(this, 'customIcon') as String?;
   @override
-  set isDir(bool? value) => RealmObject.set(this, 'isDir', value);
+  set customIcon(String? value) => RealmObject.set(this, 'customIcon', value);
+
+  @override
+  bool get isDir => RealmObject.get<bool>(this, 'isDir') as bool;
+  @override
+  set isDir(bool value) => RealmObject.set(this, 'isDir', value);
+
+  @override
+  bool get isPinned => RealmObject.get<bool>(this, 'isPinned') as bool;
+  @override
+  set isPinned(bool value) => RealmObject.set(this, 'isPinned', value);
+
+  @override
+  Note? get parent => RealmObject.get<Note>(this, 'parent') as Note?;
+  @override
+  set parent(covariant Note? value) => RealmObject.set(this, 'parent', value);
 
   @override
   Stream<RealmObjectChanges<Note>> get changes =>
@@ -59,9 +89,14 @@ class Note extends _Note with RealmEntity, RealmObject {
     RealmObject.registerFactory(Note._);
     return const SchemaObject(Note, [
       SchemaProperty('id', RealmPropertyType.string, primaryKey: true),
-      SchemaProperty('content', RealmPropertyType.string),
+      SchemaProperty('title', RealmPropertyType.string),
+      SchemaProperty('content', RealmPropertyType.string, optional: true),
       SchemaProperty('createdAt', RealmPropertyType.string, optional: true),
-      SchemaProperty('isDir', RealmPropertyType.bool, optional: true),
+      SchemaProperty('customIcon', RealmPropertyType.string, optional: true),
+      SchemaProperty('isDir', RealmPropertyType.bool),
+      SchemaProperty('isPinned', RealmPropertyType.bool),
+      SchemaProperty('parent', RealmPropertyType.object,
+          optional: true, linkTarget: 'Note'),
     ]);
   }
 }

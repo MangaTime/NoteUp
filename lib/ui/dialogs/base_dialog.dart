@@ -33,7 +33,7 @@ class _FDialogRoute<T> extends PopupRoute<T> {
   bool get barrierDismissible => true;
 
   @override
-  Color get barrierColor => const Color(0xff665b616e);
+  Color get barrierColor => const Color.fromARGB(102, 93, 99, 112);
 
   // late AnimationController _animationController;
 
