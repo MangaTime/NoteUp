@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:note_up/core/providers/note_provider.dart';
 import 'package:note_up/core/providers/realm_provider.dart';
+import 'package:note_up/ui/routes/app_routes.dart';
+import 'package:note_up/ui/screens/home/home.dart';
 import 'package:note_up/ui/screens/note.dart';
-import 'package:note_up/ui/screens/home.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(const MyApp());
@@ -31,21 +32,15 @@ class MyApp extends StatelessWidget {
               ],
               child: MaterialApp(
                 debugShowCheckedModeBanner: false,
-                title: 'Flutter Provider Architecture Starter',
                 theme: ThemeData(
                   colorScheme:
                       ColorScheme.fromSeed(seedColor: Colors.deepOrange),
                 ),
-                // TODO: config app theme over here somehow
-                // backgroundColor: Colors.white,
-                // bottomAppBarTheme: BottomAppBarTheme(),
-                // primarySwatch: Colors.blue,
-                // primaryColor: Colors.amber,
-                // listTileTheme: const ListTileThemeData(
-                //   tileColor: Colors.yellow,
-                // )),
-                home: const HomeScreen(),
-                routes: {"ADD_NOTE": (context) => const NoteScreen()},
+                initialRoute: AppRoutes.home.route,
+                routes: {
+                  AppRoutes.home.route: (context) => const HomeScreen(),
+                  AppRoutes.addNote.route: (context) => const NoteScreen()
+                },
               ));
         }));
   }
