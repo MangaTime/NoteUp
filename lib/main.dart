@@ -33,9 +33,7 @@ class MyApp extends StatelessWidget {
               child: MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme: ThemeData(
-                  colorScheme:
-                      ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-                ),
+                    brightness: Brightness.dark, primaryColor: Colors.blueGrey),
                 initialRoute: AppRoutes.home.route,
                 routes: {
                   AppRoutes.home.route: (context) => const HomeScreen(),
