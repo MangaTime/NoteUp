@@ -1,4 +1,4 @@
-enum AppRoutes { home, addNote }
+enum AppRoutes { home, addNote, addFolder }
 
 extension AppRoutesExtension on AppRoutes {
   String get route {
@@ -7,6 +7,8 @@ extension AppRoutesExtension on AppRoutes {
         return '/';
       case AppRoutes.addNote:
         return '/ADD_NOTE';
+      case AppRoutes.addFolder:
+        return '/ADD_FOLDER';
       default:
         return '/';
     }

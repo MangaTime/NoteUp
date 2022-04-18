@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:note_up/core/providers/note_provider.dart';
 import 'package:note_up/core/providers/realm_provider.dart';
 import 'package:note_up/ui/routes/app_routes.dart';
+import 'package:note_up/ui/screens/addFolder/add_folder.dart';
 import 'package:note_up/ui/screens/home/home.dart';
 import 'package:note_up/ui/screens/note.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
                 initialRoute: AppRoutes.home.route,
                 routes: {
                   AppRoutes.home.route: (context) => const HomeScreen(),
-                  AppRoutes.addNote.route: (context) => const NoteScreen()
+                  AppRoutes.addNote.route: (context) => const NoteScreen(),
+                  AppRoutes.addFolder.route: (context) => const FolderScreen()
                 },
               ));
         }));
