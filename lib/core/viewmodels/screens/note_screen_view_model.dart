@@ -40,6 +40,10 @@ class NoteScreenViewModel extends BaseViewModel {
     }
   }
 
+  void addDir(String title, String customIcon) {
+    noteProvider.addNote(title, customIcon: customIcon, isDir: true);
+  }
+
   void onFormUpdate() {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save();
