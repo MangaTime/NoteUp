@@ -27,7 +27,9 @@ class HomeBottomTabs extends StatelessWidget {
               tooltip: 'Add folder',
               icon: const Icon(Icons.create_new_folder_outlined),
               color: Theme.of(context).colorScheme.onBackground,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.addFolder.route);
+              },
             ),
             IconButton(
               tooltip: 'Settings',
