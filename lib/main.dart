@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:note_up/core/providers/note_provider.dart';
 import 'package:note_up/core/providers/realm_provider.dart';
 import 'package:note_up/ui/routes/app_routes.dart';
-import 'package:note_up/ui/screens/addFolder/add_folder.dart';
+import 'package:note_up/ui/screens/folder/folder.dart';
 import 'package:note_up/ui/screens/home/home.dart';
 import 'package:note_up/ui/screens/note.dart';
 import 'package:provider/provider.dart';

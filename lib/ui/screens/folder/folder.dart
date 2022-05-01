@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:note_up/ui/screens/addFolder/folder_icons.dart';
-import 'package:note_up/ui/screens/addFolder/select_icon_button.dart';
+import 'package:note_up/ui/screens/folder/folder_icons.dart';
+import 'package:note_up/ui/screens/folder/select_icon_button.dart';
+
+class FolderRouteArguments {
+  FolderRouteArguments({this.id});
+  final String? id;
+}
 
 class FolderScreen extends StatefulWidget {
   const FolderScreen({Key? key}) : super(key: key);
